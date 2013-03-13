@@ -19,6 +19,7 @@ package
 			super.create();
 			player = new Player();
 			add(player);
+			add(Registry.Bullets);
 		}
 		
 		override public function update():void 

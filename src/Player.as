@@ -22,7 +22,7 @@ package
 			
 			health = 100;
 		}
-		
+		       
 		override public function update():void 
 		{
 			acceleration.x = 0;
@@ -40,6 +40,10 @@ package
 			}
 			if (FlxG.keys.DOWN) {
 				acceleration.y = maxVelocity.y * 4;
+			}
+			
+			if (FlxG.keys.SPACE) {
+				Registry.Bullets.fire(x, y);
 			}
 		}
 	}
