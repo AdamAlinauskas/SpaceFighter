@@ -12,7 +12,7 @@ package
 		{
 			super();
 			
-			for (var i:int = 0; i < 40; i++) {
+			for (var i:int = 0; i < 60; i++) {
 				add(new Bullet);
 			}
 		}

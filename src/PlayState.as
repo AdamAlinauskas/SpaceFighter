@@ -1,6 +1,8 @@
 package  
 {
+	import org.flixel.FlxG;
 	import org.flixel.FlxState;
+	import org.flixel.FlxU;
 	/**
 	 * ...
 	 * @author Adam
@@ -20,11 +22,13 @@ package
 			player = new Player();
 			add(player);
 			add(Registry.Bullets);
+			add(Registry.Enemies);
 		}
 		
 		override public function update():void 
 		{
 			super.update();
+			FlxG.overlap(Registry.Bullets, Registry.Enemies, Registry.Enemies.bulletHitEnemy);
 		}
 	}
 }

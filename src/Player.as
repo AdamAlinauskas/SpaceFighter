@@ -12,12 +12,12 @@ package
 			super(FlxG.width / 2, FlxG.height - 50);
 			makeGraphic(10, 12, 0xffaa1111);
 			
-			acceleration.x = 10;
-			maxVelocity.x = 140;
+			acceleration.x = 50;
+			maxVelocity.x = 200;
 			drag.x = maxVelocity.x * 4;
 			
-			acceleration.y = 10;
-			maxVelocity.y = 140;
+			acceleration.y = 50;
+			maxVelocity.y = 200;
 			drag.y = maxVelocity.y * 4;
 			
 			health = 100;
