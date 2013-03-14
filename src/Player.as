@@ -25,10 +25,11 @@ package
 		       
 		override public function update():void 
 		{
+			super.update();
+			
 			acceleration.x = 0;
 			acceleration.y = 0;
 			
-			super.update();
 			if (FlxG.keys.RIGHT) {
 				acceleration.x = maxVelocity.x * 4;
 			}
