@@ -10,6 +10,7 @@ package
 		public static var Enemies:EnemyManager = new EnemyManager;
 		public static var Blood:BloodManager = new BloodManager;
 		public static var SpaceShip:Player = new Player;
+		public static var enemyBullet:EnemyBulletManager = new EnemyBulletManager;
 		public function Registry() 
 		{
 			

@@ -16,7 +16,8 @@ package
 			add(Registry.SpaceShip);
 			add(Registry.Bullets);
 			add(Registry.Enemies);
-			add(Registry.Blood); 			
+			add(Registry.Blood);
+ 			add(Registry.enemyBullet);
 		}
 		
 		override public function update():void 

@@ -1,6 +1,7 @@
 package  
 {
 	import flash.utils.setInterval;
+	import flash.utils.setTimeout;
 	import org.flixel.*;
 	
 	public class Enemy extends FlxSprite
@@ -21,10 +22,9 @@ package
 			velocity.y = 50;
 			health = 4;
 			exists = true;
-			
-			if (Utility.chanceRoll(75)) {
-				shoot = false;
-				setInterval(function():void { shoot = true; }, 3000);
+			shoot = false;
+			if (Utility.chanceRoll(50)) {
+				setTimeout(function():void { shoot = true; }, 1000);
 			}
 		}
 		
@@ -38,9 +38,14 @@ package
 		{
 			super.update();
 			
-			if (shoot) {
+			if (shoot ==true) {
 				//Fire a bullet in the direction of the player.
 				//or striaght down if its easier.
+				shoot = false;
+				var bullet:EnemyBullet = EnemyBullet(Registry.enemyBullet.getFirstAvailable());
+				if(bullet)
+					bullet.fire(x + 5, y + 5);
+				
 			}
 			
 			if (y > FlxG.height) {
