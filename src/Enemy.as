@@ -1,10 +1,12 @@
 package  
 {
-	import org.flixel.FlxG;
-	import org.flixel.FlxSprite;
+	import flash.utils.setInterval;
+	import org.flixel.*;
 	
 	public class Enemy extends FlxSprite
 	{
+		
+		private var shoot:Boolean;
 		public function Enemy() 
 		{
 			makeGraphic(15, 10, 0xff0000aa);
@@ -17,9 +19,13 @@ package
 			
 			//velocity.x = 50 + int(Math.random() * 100);
 			velocity.y = 50;
-			
 			health = 4;
 			exists = true;
+			
+			if (Utility.chanceRoll(75)) {
+				shoot = false;
+				setInterval(function():void { shoot = true; }, 3000);
+			}
 		}
 		
 		override public function kill():void 
@@ -31,6 +37,12 @@ package
 		override public function update():void 
 		{
 			super.update();
+			
+			if (shoot) {
+				//Fire a bullet in the direction of the player.
+				//or striaght down if its easier.
+			}
+			
 			if (y > FlxG.height) {
 					exists = false;
 			}

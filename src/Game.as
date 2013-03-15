@@ -1,6 +1,6 @@
 package  
 {
-	import org.flixel.FlxGame;
+	import org.flixel.*;
 	public class Game extends FlxGame
 	{
 		public function Game() 
