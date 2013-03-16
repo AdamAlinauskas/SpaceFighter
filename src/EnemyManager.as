@@ -47,7 +47,6 @@ package
             bullet.kill();
             enemy.hurt(1);
             Registry.Blood.explodeBlock(enemy.x, enemy.y);
-            FlxG.score += 1;
         }
 		
 		

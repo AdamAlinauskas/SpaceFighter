@@ -47,6 +47,13 @@ package
 				Registry.Bullets.fire(x, y);
 			}
 		}
+		
+		public function bulletHit(bullet:FlxObject, player:FlxObject):void
+        {
+            bullet.kill();
+            hurt(25);
+            Registry.Blood.explodeBlock(x, y);
+        }
 	}
 
 }

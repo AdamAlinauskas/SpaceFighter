@@ -4,6 +4,8 @@ package
 	
 	public class PlayState extends FlxState
 	{
+		var score:FlxText;
+		var health:FlxText;
 		
 		public function PlayState() 
 		{
@@ -13,6 +15,10 @@ package
 		{
 			super.create();
 			
+			score = new FlxText(5, 0, 100);
+			health = new FlxText(200, 0, 50);
+			add(score);
+			add(health);
 			add(Registry.SpaceShip);
 			add(Registry.Bullets);
 			add(Registry.Enemies);
@@ -23,7 +29,10 @@ package
 		override public function update():void 
 		{
 			super.update();
+			score.text = "Score " + FlxG.score;
+			health.text = "Health " + Registry.SpaceShip.health;
 			FlxG.overlap(Registry.Bullets, Registry.Enemies, Registry.Enemies.bulletHitEnemy);
+			FlxG.overlap(Registry.enemyBullet, Registry.SpaceShip, Registry.SpaceShip.bulletHit);
 		}
 	}
 }

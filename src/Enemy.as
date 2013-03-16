@@ -18,7 +18,12 @@ package
 			x = Utility.RandomNumberBetween(0, FlxG.width - width);
 			y = -16;
 			
-			//velocity.x = 50 + int(Math.random() * 100);
+			var direction:int = -1;
+			
+			if (x < FlxG.width / 2)
+				direction = 1;
+			
+			velocity.x = int(Math.random() * 25) * direction;
 			velocity.y = 50;
 			health = 4;
 			exists = true;
@@ -28,10 +33,15 @@ package
 			}
 		}
 		
+		private function direction():int {
+			var value = Utility.RandomNumberBetween(0, 100) % 2;
+			return value == 0 ? 1 : -1;
+		}
+		
 		override public function kill():void 
 		{
 			super.kill();
-			FlxG.score += 28;
+			FlxG.score += 1;
 		}
 		
 		override public function update():void 
