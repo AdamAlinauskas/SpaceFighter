@@ -9,7 +9,7 @@ package
 	public class EnemyManager extends FlxGroup
 	{
 		private var lastReleased:int;
-        private var releaseRate:int = 500;
+        private var releaseRate:int = 1000;
 		
 		public function EnemyManager() 
 		{

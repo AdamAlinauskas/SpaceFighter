@@ -13,7 +13,7 @@ package
 		public function Bullet() 
 		{
 			super(1, 1);
-			makeGraphic(1, 1, 0xffffffff);
+			makeGraphic(3, 3, 0xffffffff);
 			exists = false;
 		}
 		

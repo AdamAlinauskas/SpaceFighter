@@ -51,7 +51,8 @@ package
 		public function bulletHit(bullet:FlxObject, player:FlxObject):void
         {
             bullet.kill();
-            hurt(25);
+            hurt(EnemyBullet(bullet).damage);
+			
             Registry.Blood.explodeBlock(x, y);
         }
 	}

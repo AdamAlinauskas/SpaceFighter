@@ -1,5 +1,6 @@
 package  
 {
+	import flash.utils.setTimeout;
 	import org.flixel.FlxGroup;
 	/**
 	 * ...
@@ -7,7 +8,8 @@ package
 	 */
 	public class BulletManager extends FlxGroup
 	{
-		
+		private var canFire:Boolean = true;
+		private var fireRate:int = 100
 		public function BulletManager() 
 		{
 			super();
@@ -18,8 +20,12 @@ package
 		}
 		
 		public function fire(bx:int, by:int):void {
-			if (getFirstAvailable()) {
+			if ( canFire && getFirstAvailable()) {
 				Bullet(getFirstAvailable()).fire(bx, by);
+				
+				canFire = false;
+				setTimeout(function():void { canFire = true }, fireRate);
+				
 			}
 		}
 		

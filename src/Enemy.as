@@ -25,7 +25,7 @@ package
 			
 			velocity.x = int(Math.random() * 25) * direction;
 			velocity.y = 50;
-			health = 4;
+			health = 2;
 			exists = true;
 			shoot = false;
 			if (Utility.chanceRoll(50)) {
