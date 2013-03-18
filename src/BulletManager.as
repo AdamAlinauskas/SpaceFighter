@@ -9,7 +9,8 @@ package
 	public class BulletManager extends FlxGroup
 	{
 		private var canFire:Boolean = true;
-		private var fireRate:int = 100
+
+
 		public function BulletManager() 
 		{
 			super();
@@ -18,14 +19,23 @@ package
 				add(new Bullet);
 			}
 		}
+
+		public function loadBullets(createBullet){
+			super.clear();
+			for(var i:int=0; i<150; i++){
+				add(createBullet());
+			}
+		}
 		
 		public function fire(bx:int, by:int):void {
 			if ( canFire && getFirstAvailable()) {
-				Bullet(getFirstAvailable()).fire(bx, by);
+				var bullet:Bullet = Bullet(getFirstAvailable());
+				bullet.fire(bx, by);
 				
-				canFire = false;
-				setTimeout(function():void { canFire = true }, fireRate);
-				
+				if(bullet.fireRate > 0){
+					canFire = false;
+					setTimeout(function():void { canFire = true }, bullet.fireRate);
+				}
 			}
 		}
 		

@@ -1,8 +1,8 @@
 mkdir -p bin
 
-~/Documents/games/AIRSDK_COMPILER/bin/mxmlc -output bin/spaceshooter.swf -source-path flixel -- src/Main.as
+~/Documents/games/AIRSDK_COMPILER/bin/mxmlc -debug=true -output bin/spaceshooter.swf -source-path lib/flixel -- src/Main.as
 
 if [ $? -eq 0 ]
 	then 
-	~/Documents/games/AIRSDK_COMPILER/bin/fdb bin/spaceshooter.swf
+	open bin/spaceshooter.swf
 fi

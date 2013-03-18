@@ -9,6 +9,7 @@ package
 	{
 		public var damage:int = 1;
 		public var speed:int = 300;
+		public var fireRate:int = 100;
 		
 		public function Bullet() 
 		{

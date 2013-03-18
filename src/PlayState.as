@@ -24,6 +24,7 @@ package
 			add(Registry.Enemies);
 			add(Registry.Blood);
  			add(Registry.enemyBullet);
+ 			add(Registry.weaponPowerUp);
 		}
 		
 		override public function update():void 
