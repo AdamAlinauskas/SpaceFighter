@@ -11,7 +11,7 @@ package
 		public static var Blood:BloodManager = new BloodManager;
 		public static var SpaceShip:Player = new Player;
 		public static var enemyBullet:EnemyBulletManager = new EnemyBulletManager;
-		public static var weaponPowerUp:WeaponPowerUp = new WeaponPowerUp;
+		public static var weaponPowerUp:WeaponPowerUpManager = new WeaponPowerUpManager;
 		public function Registry() 
 		{
 			
