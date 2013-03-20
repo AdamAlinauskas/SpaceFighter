@@ -15,21 +15,29 @@ package
 		private var canFire:Boolean = true;
 		
 		override public function fire(bx:int, by:int,weaponManager:WeaponManager):void {
-			var bullet = Bullet(weaponManager.getFirstAvailable());
-			if ( canFire && bullet) {
-				bullet.fire(bx, by);
+			if ( canFire ) {
 				
-				if(bullet.fireRate > 0){
+				fireBullet(bx + 7, by,weaponManager);
+				fireBullet(bx-7, by,weaponManager);
+				
+				if(new Bullet().fireRate > 0){
 					canFire = false;
-					setTimeout(function():void { canFire = true }, bullet.fireRate);
+					setTimeout(function():void { canFire = true }, new Bullet().fireRate);
 				}
 			}	
 		}
 		
+		private function fireBullet(bx,by,weaponManager:WeaponManager) {
+			var bullet = Bullet(weaponManager.getFirstAvailable());
+			if(bullet)
+				bullet.fire(bx + 7, by);
+		}
+		
+		
 		override public function addBulletsTo(weaponManager:WeaponManager) {
 			for (var i:int = 0; i < 60; i++) {
 				var bullet:Bullet = new Bullet
-				bullet.makeGraphic(15, 15, 0xffffffff);
+				bullet.makeGraphic(10, 10, 0xff5588dd);
 				weaponManager.add(bullet);
 			}
 		}

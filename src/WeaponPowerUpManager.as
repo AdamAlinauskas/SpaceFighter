@@ -19,6 +19,7 @@ package
 		public function WeaponPowerUpManager(){
 			laser = new LaserWeaponPowerUp;
 			add(laser);
+			laser.kill();
 		}
 
 		override public function update():void {
