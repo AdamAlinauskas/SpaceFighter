@@ -6,7 +6,7 @@ package
 	 */
 	public class Registry 
 	{
-		public static var Bullets:BulletManager = new BulletManager;
+		public static var Bullets:WeaponManager = new WeaponManager;
 		public static var Enemies:EnemyManager = new EnemyManager;
 		public static var Blood:BloodManager = new BloodManager;
 		public static var SpaceShip:Player = new Player;

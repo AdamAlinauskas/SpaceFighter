@@ -15,6 +15,7 @@ package
 		{
 			super(1, 1);
 			makeGraphic(3, 3, 0xffffffff);
+			
 			exists = false;
 		}
 		

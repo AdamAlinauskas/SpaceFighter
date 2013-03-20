@@ -10,7 +10,7 @@ package
 		public function Laser() 
 		{
 			super();
-			makeGraphic(4, 50, 0xff4501ff);
+			makeGraphic(50, 50, 0xff4501ff);
 			damage = 4;
 			fireRate = 0;
 			speed = 200;
