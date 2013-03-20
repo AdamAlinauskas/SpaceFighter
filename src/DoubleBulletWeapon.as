@@ -37,7 +37,7 @@ package
 		override public function addBulletsTo(weaponManager:WeaponManager) {
 			for (var i:int = 0; i < 60; i++) {
 				var bullet:Bullet = new Bullet
-				bullet.makeGraphic(10, 10, 0xff5588dd);
+				bullet.makeGraphic(5, 5, 0xff5588dd);
 				weaponManager.add(bullet);
 			}
 		}

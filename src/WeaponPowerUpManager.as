@@ -15,29 +15,35 @@ package
 		private var lastReleased:int;
         private var timeToWait:int = 1500;
 		private var powerUpLasts = 5000;
+		private var HasPowerUp:Boolean = false;
 
 		public function WeaponPowerUpManager(){
 			laser = new LaserWeaponPowerUp;
-			add(laser);
 			laser.kill();
+			add(laser);
 		}
 
 		override public function update():void {
 			super.update();
 			FlxG.overlap(laser, Registry.SpaceShip, applyPowerUp);
 			
-			if (getTimer() > lastReleased + timeToWait)
+			if (HasPowerUp == false &&  FlxG.score != 0 && FlxG.score %10 == 0)
             {
                 lastReleased = getTimer();
 				timeToWait = 15000
 				laser.revive();
                 laser.x = 150;
-				laser.y = 0;
+				laser.y = -25;
             }
 			
+			if (HasPowerUp && getTimer() > lastReleased + timeToWait) {
+				HasPowerUp = false;
+				Registry.Bullets.load(new ClassicWeapon);
+			}
 		}
 
-		public function applyPowerUp(weapon:WeaponPowerUp,player:FlxSprite):void{
+		public function applyPowerUp(weapon:WeaponPowerUp, player:FlxSprite):void {
+			HasPowerUp = true;
 			weapon.kill();
 			Registry.Bullets.load(new DoubleBulletWeapon);
 			//setTimeout(applyClassicBullets, 10000);
