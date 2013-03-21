@@ -14,8 +14,9 @@ package
 		public var laser:LaserWeaponPowerUp;
 		private var lastReleased:int;
         private var timeToWait:int = 1500;
-		private var powerUpLasts = 5000;
+		private var powerUpLasts = 5;
 		private var HasPowerUp:Boolean = false;
+		private var powerUpCounter:Number = 0;
 
 		public function WeaponPowerUpManager(){
 			laser = new LaserWeaponPowerUp;
@@ -36,9 +37,13 @@ package
 				laser.y = -25;
             }
 			
-			if (HasPowerUp && getTimer() > lastReleased + timeToWait) {
-				HasPowerUp = false;
-				Registry.Bullets.load(new ClassicWeapon);
+			if (HasPowerUp) {
+				powerUpCounter += FlxG.elapsed;
+				if (powerUpCounter >= powerUpLasts) {
+					powerUpCounter = 0;
+					HasPowerUp = false;
+					Registry.Bullets.load(new ClassicWeapon);
+				}
 			}
 		}
 
@@ -46,11 +51,6 @@ package
 			HasPowerUp = true;
 			weapon.kill();
 			Registry.Bullets.load(new DoubleBulletWeapon);
-			//setTimeout(applyClassicBullets, 10000);
-		}
-		
-		public function applyClassicBullets() {
-			//Registry.Bullets.loadBullets(function():FlxSprite { return new Bullet } );
 		}
 	}
 }
