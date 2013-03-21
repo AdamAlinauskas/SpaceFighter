@@ -25,7 +25,7 @@ package
 			add(Registry.Blood);
  			add(Registry.enemyBullet);
  			add(Registry.weaponPowerUp);
-			Registry.Bullets.load(new ClassicWeapon);
+			Registry.Bullets.load(new ZigZagWeapon);
 		}
 		
 		override public function update():void 

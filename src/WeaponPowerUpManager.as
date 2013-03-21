@@ -14,9 +14,10 @@ package
 		public var laser:LaserWeaponPowerUp;
 		private var lastReleased:int;
         private var timeToWait:int = 1500;
-		private var powerUpLasts = 5;
+		private var powerUpLasts = 15;
 		private var HasPowerUp:Boolean = false;
 		private var powerUpCounter:Number = 0;
+		private var displayPowerUpAfterKilling:int = 20;
 
 		public function WeaponPowerUpManager(){
 			laser = new LaserWeaponPowerUp;
@@ -28,7 +29,7 @@ package
 			super.update();
 			FlxG.overlap(laser, Registry.SpaceShip, applyPowerUp);
 			
-			if (HasPowerUp == false &&  FlxG.score != 0 && FlxG.score %10 == 0)
+			if (HasPowerUp == false &&  FlxG.score != 0 && FlxG.score %displayPowerUpAfterKilling == 0)
             {
                 lastReleased = getTimer();
 				timeToWait = 15000
