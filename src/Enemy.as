@@ -6,7 +6,7 @@ package
 	
 	public class Enemy extends FlxSprite
 	{
-		
+		[Embed(source="../assets/Explosion7.mp3")] private var explosionMusic:Class;
 		private var shoot:Boolean;
 		public function Enemy() 
 		{
@@ -42,6 +42,7 @@ package
 		{
 			super.kill();
 			FlxG.score += 1;
+			FlxG.play(explosionMusic,.1);
 		}
 		
 		override public function update():void 

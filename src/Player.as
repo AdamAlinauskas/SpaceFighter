@@ -82,7 +82,7 @@ package
         {
             bullet.kill();
             hurt(EnemyBullet(bullet).damage);
-			
+			player.flicker();
             Registry.Blood.explodeBlock(x, y);
         }
 	}

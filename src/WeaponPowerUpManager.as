@@ -14,7 +14,8 @@ package
 		private var displayPowerUpAfterKilling:int = 20;
 		private var powerUps:Array = new Array;
 		private var selectedPowerUp = 0;
-
+		[Embed(source="../assets/PowerupOrKill.mp3")] private var powerupMusic:Class;
+		
 		public function WeaponPowerUpManager(){
 			laser = new LaserWeaponPowerUp;
 			laser.kill();
@@ -47,6 +48,7 @@ package
 		public function applyPowerUp(weapon:WeaponPowerUp, player:FlxSprite):void {
 			HasPowerUp = true;
 			weapon.kill();
+			FlxG.play(powerupMusic, .5);
 			Registry.Bullets.load(powerUps[selectedPowerUp]);
 			selectedPowerUp += 1;
 			if (selectedPowerUp == powerUps.length)
