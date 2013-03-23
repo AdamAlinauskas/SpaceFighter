@@ -1,9 +1,5 @@
 package  
 {
-	import flash.utils.clearTimeout;
-	import flash.utils.getTimer;
-	import flash.utils.SetIntervalTimer;
-	import flash.utils.setTimeout;
 	import org.flixel.*;
 	/**
 	 * ...
@@ -12,17 +8,19 @@ package
 	public class WeaponPowerUpManager extends FlxGroup{
 
 		public var laser:LaserWeaponPowerUp;
-		private var lastReleased:int;
-        private var timeToWait:int = 1500;
 		private var powerUpLasts = 15;
 		private var HasPowerUp:Boolean = false;
 		private var powerUpCounter:Number = 0;
 		private var displayPowerUpAfterKilling:int = 20;
+		private var powerUps:Array = new Array;
+		private var selectedPowerUp = 0;
 
 		public function WeaponPowerUpManager(){
 			laser = new LaserWeaponPowerUp;
 			laser.kill();
 			add(laser);
+			powerUps.push(new DoubleBulletWeapon());
+			powerUps.push(new ZigZagWeapon());
 		}
 
 		override public function update():void {
@@ -31,8 +29,6 @@ package
 			
 			if (HasPowerUp == false &&  FlxG.score != 0 && FlxG.score %displayPowerUpAfterKilling == 0)
             {
-                lastReleased = getTimer();
-				timeToWait = 15000
 				laser.revive();
                 laser.x = 150;
 				laser.y = -25;
@@ -51,7 +47,10 @@ package
 		public function applyPowerUp(weapon:WeaponPowerUp, player:FlxSprite):void {
 			HasPowerUp = true;
 			weapon.kill();
-			Registry.Bullets.load(new DoubleBulletWeapon);
+			Registry.Bullets.load(powerUps[selectedPowerUp]);
+			selectedPowerUp += 1;
+			if (selectedPowerUp == powerUps.length)
+				selectedPowerUp = 0;
 		}
 	}
 }

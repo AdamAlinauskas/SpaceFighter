@@ -36,6 +36,7 @@ package
 			if (FlxG.keys.LEFT) {
 				acceleration.x = -maxVelocity.x * 4;
 			}
+			
 			if (FlxG.keys.UP) {
 				acceleration.y = -maxVelocity.y * 4;
 			}
@@ -46,6 +47,35 @@ package
 			if (FlxG.keys.SPACE) {
 				Registry.Bullets.fire(x, y);
 			}
+			
+			if (FlxG.width == x){
+				acceleration.x = 0
+				velocity.x = 0;
+			}
+			
+			boundryCheck();
+		}
+		
+		private function boundryCheck():void {
+			if (FlxG.keys.LEFT && x <= 1) {
+				acceleration.x = 0;
+				velocity.x=0
+			}
+			
+			if (FlxG.keys.RIGHT && x >= FlxG.width-width) {
+				acceleration.x = 0;
+				velocity.x=0
+			}
+			
+			if (FlxG.keys.DOWN && y >= FlxG.height-height) {
+				acceleration.y = 0;
+				velocity.y=0
+			}
+			
+			if (FlxG.keys.UP && y <= 0) {
+				acceleration.y = 0;
+				velocity.y=0
+			}	
 		}
 		
 		public function bulletHit(bullet:FlxObject, player:FlxObject):void
