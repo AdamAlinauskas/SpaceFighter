@@ -42,13 +42,20 @@ package
 		{
 			super.kill();
 			FlxG.score += 1;
-			FlxG.play(explosionMusic,.1);
+			FlxG.play(explosionMusic, .1);
+			Registry.Blood.explodeBlock(x,y);
+		}
+		
+		override public function hurt(Damage:Number):void 
+		{
+			super.hurt(Damage);
+			Registry.Blood.explodeBlock(x,y);
 		}
 		
 		override public function update():void 
 		{
 			super.update();
-			
+			FlxG.overlap(this, Registry.SpaceShip,collideWithPlayer);
 			if (shoot ==true) {
 				//Fire a bullet in the direction of the player.
 				//or striaght down if its easier.
@@ -62,6 +69,12 @@ package
 			if (y > FlxG.height) {
 					exists = false;
 			}
+		}
+		
+		private function collideWithPlayer(enmey:Enemy,player:Player):void {
+			kill();
+			player.hurt(25);
+			player.flicker();
 		}
 	}
 }

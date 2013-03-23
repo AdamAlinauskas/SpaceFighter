@@ -11,7 +11,7 @@ package
 		
 		
 		private var canFire:Boolean = true;
-		[Embed(source="../assets/Laser_Shoot5.mp3")] private var shootMusic:Class;
+		[Embed(source="../assets/Laser_Shoot10.mp3")] private var shootMusic:Class;
 		public function ClassicWeapon(){
 			
 		}
