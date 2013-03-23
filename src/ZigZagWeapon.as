@@ -10,7 +10,7 @@ package
 		private var canFire:Boolean = true;
 		private var fireRate:Number = .05;
 		private var counter:Number = 0;
-		private var startDirectionLeft = true;
+		private var startDirectionLeft:int = 1;
 		
 		public function ZigZagWeapon(){
 			
@@ -19,9 +19,15 @@ package
 		override public function fire(bx:int, by:int,weaponManager:WeaponManager):void {
 			counter += FlxG.elapsed;
 			if(counter >= fireRate){
-				var bullet = Bullet(weaponManager.getFirstAvailable());
+				var bullet:ZigZagBullet = ZigZagBullet(weaponManager.getFirstAvailable());
 				if (bullet != null) {
-  				//	bullet.startDirectionLeft = startDirectionLeft;
+      				bullet.setInitialBulletXaxisDirection(true);
+					bullet.fire(bx, by);
+				}
+				
+				var bullet:ZigZagBullet = ZigZagBullet(weaponManager.getFirstAvailable());
+				if (bullet != null) {
+      				bullet.setInitialBulletXaxisDirection(false);
 					bullet.fire(bx, by);
 				}
 				counter = 0;
