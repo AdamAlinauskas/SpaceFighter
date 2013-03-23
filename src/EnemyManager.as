@@ -9,7 +9,7 @@ package
 	public class EnemyManager extends FlxGroup
 	{
 		private var lastReleased:int;
-        private var releaseRate:int = 1000;
+        private var releaseRate:int = ApplicationSettings.enemyReleaseRate;
 		
 		public function EnemyManager() 
 		{
@@ -19,7 +19,6 @@ package
                 add(new Enemy);
             }
 		}
-		
 		
 		override public function update():void
         {
@@ -46,11 +45,7 @@ package
         {
             bullet.kill();
             enemy.hurt(1);
-        }
-		
-		
-		
-		
+        }	
 	}
 
 }
