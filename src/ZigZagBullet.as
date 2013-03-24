@@ -8,8 +8,8 @@ package
 	 */
 	public class ZigZagBullet extends Bullet
 	{
-		var shiftBulletDirectionTime:Number = .15;
-		var counter:Number = 0;
+		private var shiftBulletDirectionTime:Number = .15;
+		private var counter:Number = 0;
 		private var startDirectionLeft:Boolean = true;
 		
 		public function ZigZagBullet() 

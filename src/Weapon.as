@@ -16,7 +16,7 @@ package
 			
 		}
 		
-		public function addBulletsTo(weaponManager:WeaponManager) {
+		public function addBulletsTo(weaponManager:WeaponManager):void {
 			
 		}
 	}

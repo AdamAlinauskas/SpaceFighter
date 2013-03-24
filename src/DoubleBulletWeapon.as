@@ -27,14 +27,14 @@ package
 			}	
 		}
 		
-		private function fireBullet(bx,by,weaponManager:WeaponManager) {
-			var bullet = Bullet(weaponManager.getFirstAvailable());
+		private function fireBullet(bx:int,by:int,weaponManager:WeaponManager):void {
+			var bullet:Bullet = Bullet(weaponManager.getFirstAvailable());
 			if(bullet)
 				bullet.fire(bx + 7, by);
 		}
 		
 		
-		override public function addBulletsTo(weaponManager:WeaponManager) {
+		override public function addBulletsTo(weaponManager:WeaponManager):void {
 			for (var i:int = 0; i < 60; i++) {
 				var bullet:Bullet = new Bullet
 				bullet.makeGraphic(5, 5, 0xff5588dd);

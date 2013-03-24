@@ -17,7 +17,7 @@ package
 		}
 		
 		override public function fire(bx:int, by:int,weaponManager:WeaponManager):void {
-			var bullet = Bullet(weaponManager.getFirstAvailable());
+			var bullet:Bullet = Bullet(weaponManager.getFirstAvailable());
 			if ( canFire && bullet) {
 				bullet.fire(bx, by);
 				FlxG.play(shootMusic, .05);
@@ -28,7 +28,7 @@ package
 			}	
 		}
 		
-		override public function addBulletsTo(weaponManager:WeaponManager) {
+		override public function addBulletsTo(weaponManager:WeaponManager):void {
 			for (var i:int = 0; i < 60; i++) {
 				weaponManager.add(new Bullet);
 			}

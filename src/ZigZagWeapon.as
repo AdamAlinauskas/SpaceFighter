@@ -19,22 +19,21 @@ package
 		override public function fire(bx:int, by:int,weaponManager:WeaponManager):void {
 			counter += FlxG.elapsed;
 			if(counter >= fireRate){
-				var bullet:ZigZagBullet = ZigZagBullet(weaponManager.getFirstAvailable());
-				if (bullet != null) {
-      				bullet.setInitialBulletXaxisDirection(true);
-					bullet.fire(bx, by);
-				}
-				
-				var bullet:ZigZagBullet = ZigZagBullet(weaponManager.getFirstAvailable());
-				if (bullet != null) {
-      				bullet.setInitialBulletXaxisDirection(false);
-					bullet.fire(bx, by);
-				}
+				shoot(bx, by, true, weaponManager);
+				shoot(bx, by, false, weaponManager);
 				counter = 0;
 			}
 		}
 		
-		override public function addBulletsTo(weaponManager:WeaponManager) {
+		private function shoot(bx:int, by:int, shootRight:Boolean,weaponManager:WeaponManager):void {
+			var bullet:ZigZagBullet = ZigZagBullet(weaponManager.getFirstAvailable());
+				if (bullet != null) {
+      				bullet.setInitialBulletXaxisDirection(shootRight);
+					bullet.fire(bx, by);
+				}
+		}
+		
+		override public function addBulletsTo(weaponManager:WeaponManager):void {
 			for (var i:int = 0; i < 60; i++) {
 				weaponManager.add(new ZigZagBullet);
 			}

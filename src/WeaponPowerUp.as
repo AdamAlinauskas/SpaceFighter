@@ -11,12 +11,7 @@ package
 		public function WeaponPowerUp() 
 		{
 			
-		}
-		
-		public function makeBullet(){
-			
-		}
-		
+		}	
 	}
 
 }
