@@ -45,7 +45,7 @@ package
 			}
 			
 			if (FlxG.keys.SPACE) {
-				Registry.Bullets.fire(x, y);
+				Registry.weaponManager.fire(x, y);
 			}
 			
 			if (FlxG.width == x){
@@ -53,26 +53,26 @@ package
 				velocity.x = 0;
 			}
 			
-			boundryCheck();
+			boundaryCheck();
 		}
 		
-		private function boundryCheck():void {
-			if (FlxG.keys.LEFT && x <= 1) {
+		private function boundaryCheck():void {
+			if (!FlxG.keys.RIGHT && x <= 1) {
 				acceleration.x = 0;
 				velocity.x=0
 			}
 			
-			if (FlxG.keys.RIGHT && x >= FlxG.width-width) {
+			if (!FlxG.keys.LEFT && x >= FlxG.width-width) {
 				acceleration.x = 0;
 				velocity.x=0
 			}
 			
-			if (FlxG.keys.DOWN && y >= FlxG.height-height) {
+			if (!FlxG.keys.UP && y >= FlxG.height-height) {
 				acceleration.y = 0;
 				velocity.y=0
 			}
 			
-			if (FlxG.keys.UP && y <= 0) {
+			if (!FlxG.keys.DOWN && y <= 0) {
 				acceleration.y = 0;
 				velocity.y=0
 			}	

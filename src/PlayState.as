@@ -20,12 +20,12 @@ package
 			add(score);
 			add(health);
 			add(Registry.SpaceShip);
-			add(Registry.Bullets);
+			add(Registry.weaponManager);
 			add(Registry.Enemies);
 			add(Registry.Blood);
  			add(Registry.enemyBullet);
  			add(Registry.weaponPowerUp);
-			Registry.Bullets.load(new ZigZagWeapon);
+			Registry.weaponManager.load(new ZigZagWeapon);
 		}
 		
 		override public function update():void 
@@ -33,7 +33,7 @@ package
 			super.update();
 			score.text = "Score " + FlxG.score;
 			health.text = "Health " + Registry.SpaceShip.health;
-			FlxG.overlap(Registry.Bullets, Registry.Enemies, Registry.Enemies.bulletHitEnemy);
+			FlxG.overlap(Registry.weaponManager, Registry.Enemies, Registry.Enemies.bulletHitEnemy);
 			FlxG.overlap(Registry.enemyBullet, Registry.SpaceShip, Registry.SpaceShip.bulletHit);
 		}
 	}

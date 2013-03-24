@@ -40,7 +40,7 @@ package
 				if (powerUpCounter >= powerUpLasts) {
 					powerUpCounter = 0;
 					HasPowerUp = false;
-					Registry.Bullets.load(new ClassicWeapon);
+					Registry.weaponManager.load(new ClassicWeapon);
 				}
 			}
 		}
@@ -49,7 +49,7 @@ package
 			HasPowerUp = true;
 			weapon.kill();
 			FlxG.play(powerupMusic, .5);
-			Registry.Bullets.load(powerUps[selectedPowerUp]);
+			Registry.weaponManager.load(powerUps[selectedPowerUp]);
 			selectedPowerUp += 1;
 			if (selectedPowerUp == powerUps.length)
 				selectedPowerUp = 0;
