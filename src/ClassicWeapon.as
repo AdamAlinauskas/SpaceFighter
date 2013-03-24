@@ -20,7 +20,7 @@ package
 			var bullet:Bullet = Bullet(weaponManager.getFirstAvailable());
 			if ( canFire && bullet) {
 				bullet.fire(bx, by);
-				FlxG.play(shootMusic, .05);
+				FlxG.play(shootMusic, .01);
 				if(bullet.fireRate > 0){
 					canFire = false;
 					setTimeout(function():void { canFire = true }, bullet.fireRate);
