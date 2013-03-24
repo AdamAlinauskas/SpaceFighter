@@ -4,8 +4,8 @@ package
 	
 	public class PlayState extends FlxState
 	{
-		var score:FlxText;
-		var health:FlxText;
+		private var score:FlxText;
+		private var health:FlxText;
 		
 		public function PlayState() 
 		{

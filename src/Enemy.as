@@ -34,7 +34,7 @@ package
 		}
 		
 		private function direction():int {
-			var value = Utility.RandomNumberBetween(0, 100) % 2;
+			var value:Number = Utility.RandomNumberBetween(0, 100) % 2;
 			return value == 0 ? 1 : -1;
 		}
 		
