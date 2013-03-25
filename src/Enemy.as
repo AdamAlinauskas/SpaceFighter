@@ -43,7 +43,7 @@ package
 			super.kill();
 			FlxG.score += 1;
 			FlxG.play(explosionMusic, .1);
-			Registry.Blood.explodeBlock(x,y);
+			Registry.Blood.explodeBlock(x, y);
 		}
 		
 		override public function hurt(Damage:Number):void 
@@ -68,6 +68,7 @@ package
 			
 			if (y > FlxG.height) {
 					exists = false;
+					super.kill();
 			}
 		}
 		

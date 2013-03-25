@@ -10,13 +10,14 @@ package
 	{
 		private var lastReleased:int;
         private var releaseRate:int = ApplicationSettings.enemyReleaseRate;
+		private var enemies:Array = new Array;
 		
 		public function EnemyManager() 
 		{
 			super();
-			for (var i:int = 0; i < 100; i++)
+			for (var i:int = 0; i < ApplicationSettings.numberOfEnemies; i++)
             {
-                add(new Enemy);
+                enemies.push(new Enemy);
             }
 		}
 		
@@ -33,10 +34,11 @@ package
 		
 		public function release():void
         {
-            var enemy:Enemy = Enemy(getFirstAvailable());
+            var enemy:Enemy = Enemy(enemies.pop());
             
             if (enemy)
             {
+				add(enemy);
                 enemy.launch();
             }
         }
