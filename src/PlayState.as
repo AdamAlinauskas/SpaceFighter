@@ -15,6 +15,7 @@ package
 		override public function create():void 
 		{
 			super.create();
+			Registry.load();
 			//FlxG.visualDebug = true;
 			score = new FlxText(5, 0, 100);
 			health = new FlxText(200, 0, 50);
@@ -29,7 +30,7 @@ package
 			Registry.weaponManager.load(new ClassicWeapon);
 			
 			message = new FlxText(0, FlxG.height / 2, FlxG.width, "You Win");
-			message.setFormat(null, 16, 0xff009900,"center");
+			message.setFormat(null, 12, 0xff009900,"center");
 			add(message);
 			message.exists = false;
 		}
@@ -41,13 +42,29 @@ package
 			health.text = "Health " + Registry.SpaceShip.health;
 			FlxG.overlap(Registry.weaponManager, Registry.Enemies, Registry.Enemies.bulletHitEnemy);
 			FlxG.overlap(Registry.enemyBullet, Registry.SpaceShip, Registry.SpaceShip.bulletHit);
-			
 			youWin();
 		}
 		
 		public function youWin():void {
 			if (ApplicationSettings.finshedLevel()) {
-					message.exists = true;
+				message.exists = true;
+				if (ApplicationSettings.hasNextLevel()) {
+    					message.text = "Level complete. Press X to play the next level.";
+					if (FlxG.keys.X) {
+						ApplicationSettings.loadNextLevel();
+						Registry.Enemies = new EnemyManager;
+						add(Registry.Enemies);
+						//FlxG.switchState(new PlayState);
+					}
+				}
+				else {
+					message.text "You Win";
+				}
+				
+					
+			}
+			else {
+					message.exists = false;
 			}
 		}
 	}

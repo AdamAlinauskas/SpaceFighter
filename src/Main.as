@@ -22,7 +22,8 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
 			var game:Game = new Game();
-			
+			ApplicationSettings.LoadLevel([new Level(2,1000),new Level(10,500)])
+
 			addChild(game);
 		}
 		

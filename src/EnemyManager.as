@@ -9,13 +9,13 @@ package
 	public class EnemyManager extends FlxGroup
 	{
 		private var lastReleased:int;
-        private var releaseRate:int = ApplicationSettings.enemyReleaseRate;
+        private var releaseRate:int = ApplicationSettings.currentLevel.enemyReleaseRate;
 		private var enemies:Array = new Array;
 		
 		public function EnemyManager() 
 		{
 			super();
-			for (var i:int = 0; i < ApplicationSettings.numberOfEnemies; i++)
+			for (var i:int = 0; i < ApplicationSettings.currentLevel.numberOfEnemies; i++)
             {
                 enemies.push(new Enemy);
             }
