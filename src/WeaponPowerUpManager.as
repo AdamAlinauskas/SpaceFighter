@@ -11,7 +11,7 @@ package
 		private var powerUpLasts:int = 15;
 		private var HasPowerUp:Boolean = false;
 		private var powerUpCounter:Number = 0;
-		private var displayPowerUpAfterKilling:int = 20;
+		private var displayPowerUpAfterKilling:int = 10;
 		private var powerUps:Array = new Array;
 		private var selectedPowerUp:int = 0;
 		[Embed(source="../assets/PowerupOrKill.mp3")] private var powerupMusic:Class;
@@ -20,8 +20,8 @@ package
 			powerUp = new PowerUpSprite;
 			powerUp.kill();
 			add(powerUp);
-			powerUps.push(new DoubleBulletWeapon());
 			powerUps.push(new ZigZagWeapon());
+			powerUps.push(new DoubleBulletWeapon());
 		}
 		
 		override public function update():void {
