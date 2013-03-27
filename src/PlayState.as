@@ -58,7 +58,8 @@ package
 					}
 				}
 				else {
-					message.text "You Win";
+					message.text = "You Win";
+					
 				}
 				
 					
