@@ -7,7 +7,7 @@ package
 	 */
 	public class EnemyBullet extends FlxSprite
 	{
-		public var damage:int = 25;
+		public var damage:int = 1;
 		public var speed:int = 100;
 		
 		public function EnemyBullet() 

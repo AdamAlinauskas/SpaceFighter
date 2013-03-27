@@ -20,7 +20,7 @@ package
 			maxVelocity.y = 200;
 			drag.y = maxVelocity.y * 4;
 			
-			health = 100;
+			health = 4;
 		}
 		       
 		override public function update():void 

@@ -74,7 +74,7 @@ package
 		
 		private function collideWithPlayer(enmey:Enemy,player:Player):void {
 			kill();
-			player.hurt(25);
+			player.hurt(1);
 			player.flicker();
 		}
 	}
