@@ -42,7 +42,7 @@ package
 		{
 			super.kill();
 			FlxG.score += 1;
-			FlxG.play(explosionMusic, .1);
+			GameSound.play(explosionMusic, .1);
 			Registry.Blood.explodeBlock(x, y);
 			ApplicationSettings.numberOfEnemiesKilled += 1;
 		}

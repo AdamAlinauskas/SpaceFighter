@@ -48,7 +48,7 @@ package
 		public function applyPowerUp(weapon:PowerUpSprite, player:FlxSprite):void {
 			HasPowerUp = true;
 			weapon.kill();
-			FlxG.play(powerupMusic, .5);
+			GameSound.play(powerupMusic, .3);
 			Registry.weaponManager.load(powerUps[selectedPowerUp]);
 			selectedPowerUp += 1;
 			if (selectedPowerUp == powerUps.length)

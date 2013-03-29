@@ -21,8 +21,7 @@ package
 			if ( canFire && bullet) {
 				bullet.fire(bx, by);
 				
-				if (ApplicationSettings.canPlaySound())
-					FlxG.play(shootMusic, .03);
+				GameSound.play(shootMusic, .03);
 				
 				if(bullet.fireRate > 0){
 					canFire = false;
