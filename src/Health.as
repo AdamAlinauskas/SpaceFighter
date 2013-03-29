@@ -1,26 +1,53 @@
 package  
 {
+	import adobe.utils.CustomActions;
 	import org.flixel.FlxG;
+	import org.flixel.FlxGroup;
 	import org.flixel.FlxSprite;
 	/**
 	 * ...
 	 * @author Adam
 	 */
-	public class Health extends FlxSprite 
-	{
-		[Embed(source = '../assets/life.png')]
-		public static var image:Class;
-		private var widthOfImage = 13;
+	public class Health extends FlxGroup 
+	{		
+		private var hearts:Array = new Array();
+		
 		public function Health() { 
-			
-			super(FlxG.width/2, 0);
 		}
 		
 		override public function update():void 
-		{
+		{	
 			super.update();
-			loadGraphic(image, true, false, Registry.SpaceShip.health * widthOfImage, 9);
-			exists = Registry.SpaceShip.health > 0;
+			createHearts();
+			updateHearts();
+		}
+		
+		private function createHearts():void 
+		{
+			if (hearts.length == 0) {
+				var heartX:Number = FlxG.width/2 - 50;
+				for (var i:int = 0; i < Registry.SpaceShip.health; i++) 
+				{
+					var heart:Heart = new Heart;
+					heart.x = heartX;
+					heart.y = 0;
+					heartX += 12;
+					hearts.push(heart);
+					add(heart);
+				}
+			}
+		}
+		
+		private function updateHearts():void 
+		{
+			if (Registry.SpaceShip.health < hearts.length) {
+				if (Registry.SpaceShip.health - 1 == 0) {
+					Heart(hearts[Registry.SpaceShip.health ]).empty();
+					Heart(hearts[Registry.SpaceShip.health-1]).flash();
+				}
+				else
+					Heart(hearts[Registry.SpaceShip.health ]).empty();
+			}
 		}
 	}
 }
