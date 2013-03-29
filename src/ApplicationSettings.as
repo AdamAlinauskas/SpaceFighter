@@ -38,5 +38,9 @@ package
 		public static function hasNextLevel():Boolean {
 			return levels.length > 0;
 		}
+		
+		public static function canPlaySound():Boolean {
+			return Registry.SpaceShip.health > 1;
+		}
 	}	
 }

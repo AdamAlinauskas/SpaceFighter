@@ -12,6 +12,11 @@ package
 	{		
 		private var hearts:Array = new Array();
 		
+		[Embed(source = "../assets/heartbeat.mp3")] 
+		private var lastLegsMusic:Class;
+		
+		private var playedMusic:Boolean;
+		
 		public function Health() { 
 		}
 		
@@ -20,6 +25,10 @@ package
 			super.update();
 			createHearts();
 			updateHearts();
+			if (Registry.SpaceShip.health == 1 && playedMusic == false ) {
+					playedMusic = true;
+					FlxG.play(lastLegsMusic, 1, true);
+			}
 		}
 		
 		private function createHearts():void 
