@@ -13,7 +13,7 @@ package
 		private var widthOfImage = 13;
 		public function Health() { 
 			
-			super(FlxG.width - widthOfImage*4, 0);
+			super(FlxG.width/2, 0);
 		}
 		
 		override public function update():void 

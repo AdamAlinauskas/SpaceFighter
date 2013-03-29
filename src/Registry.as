@@ -13,7 +13,7 @@ package
 		public static var enemyBullet:EnemyBulletManager = new EnemyBulletManager;
 		public static var weaponPowerUp:WeaponPowerUpManager = new WeaponPowerUpManager;
 		public static var endLevel:EndLevelOrGameManager = new EndLevelOrGameManager;
-		public static var health:Health = new Health;
+		public static var statsManager:StatsManager = new StatsManager;
 		
 		
 		public function Registry() 

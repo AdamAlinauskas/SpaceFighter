@@ -15,8 +15,7 @@ package
 		{
 			super.create();
 			//FlxG.visualDebug = true;
-			score = new FlxText(5, 0, 100);
-			add(score);
+			
 			add(Registry.SpaceShip);
 			add(Registry.weaponManager);
 			add(Registry.Enemies);
@@ -24,14 +23,13 @@ package
  			add(Registry.enemyBullet);
  			add(Registry.weaponPowerUp);
 			add(Registry.endLevel);
-			add(Registry.health);
+			add(Registry.statsManager);
 			Registry.weaponManager.load(new ClassicWeapon);
 		}
 		
 		override public function update():void 
 		{
 			super.update();
-			score.text = "Score " + FlxG.score;
 			FlxG.overlap(Registry.weaponManager, Registry.Enemies, Registry.Enemies.bulletHitEnemy);
 			FlxG.overlap(Registry.enemyBullet, Registry.SpaceShip, Registry.SpaceShip.bulletHit);
 		}

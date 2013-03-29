@@ -44,6 +44,7 @@ package
 			FlxG.score += 1;
 			FlxG.play(explosionMusic, .1);
 			Registry.Blood.explodeBlock(x, y);
+			ApplicationSettings.numberOfEnemiesKilled += 1;
 		}
 		
 		override public function hurt(Damage:Number):void 

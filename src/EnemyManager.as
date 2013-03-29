@@ -27,20 +27,29 @@ package
             
             if (getTimer() > lastReleased + releaseRate)
             {
-                lastReleased = getTimer();
-                release();
+				if (super.countLiving()  < ApplicationSettings.maxNumberOfEnemiesOnTheScreenAtATime()){
+					lastReleased = getTimer();
+					release();
+				}
             }
         }
 		
 		public function release():void
         {
-            var enemy:Enemy = Enemy(enemies.pop());
-            
-            if (enemy)
-            {
+			var enemiesTorelease:Array = new Array;
+			for (var i:int = 0; i < ApplicationSettings.numberOfEnemiesToReleaseAtATime(); i++) 
+			{
+				enemiesTorelease.push(enemies.pop());
+			}
+			
+			var enemy:Enemy = Enemy(enemiesTorelease.pop());
+			while (enemy != null) {
+				
 				add(enemy);
-                enemy.launch();
-            }
+				enemy.launch();
+				ApplicationSettings.totalNumberOfEnemiesReleased += 1;
+				enemy = enemiesTorelease.pop();
+			}
         }
 		
 		public function bulletHitEnemy(bullet:FlxObject, enemy:FlxObject):void
