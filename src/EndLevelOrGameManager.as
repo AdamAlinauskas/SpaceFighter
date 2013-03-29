@@ -13,7 +13,7 @@ package
 		public function EndLevelOrGameManager() 
 		{
 			message = new FlxText(0, FlxG.height / 2, FlxG.width, "You Win");
-			message.setFormat(null, 12, 0xff009900,"center");
+			message.setFormat(null, 8, 0xff009900,"center");
 			add(message);
 			message.exists = false;
 		}
@@ -24,7 +24,7 @@ package
 			if (ApplicationSettings.finshedLevel()) {
 				message.exists = true;
 				if (ApplicationSettings.hasNextLevel()) {
-    					message.text = "Level complete. Press X to play the next level.";
+    					message.text = "Press X to play level " + (ApplicationSettings.currentLevelNumber+1);
 					if (FlxG.keys.X) {
 						ApplicationSettings.loadNextLevel();
 						Registry.Enemies = new EnemyManager;
@@ -35,7 +35,6 @@ package
 					message.text = "You Win";
 					
 				}
-					
 			}
 			else {
 					message.exists = false;

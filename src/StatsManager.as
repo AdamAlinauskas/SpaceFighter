@@ -19,12 +19,13 @@ package
 
 		public function StatsManager() 
 		{
-			score = new FlxText(0, 0, 100);
-			level = new FlxText(0, 10, 100);
+			score = new FlxText(3, 0, 100);
+			level = new FlxText(FlxG.width - 45, 0,100);
+			level.color = score.color = 0xB2B200;
 			
-			totalNumberofEnemies = setTextSize(new FlxText(0, 20, 150));
-			numberOfEnemiesKilled = setTextSize(new FlxText(0, 30, 150));
 			killPercentage = setTextSize(new FlxText(0, 40, 150));
+			numberOfEnemiesKilled = setTextSize(new FlxText(0, 30, 150));
+			totalNumberofEnemies = setTextSize(new FlxText(0, 20, 150));
 
 			add(totalNumberofEnemies);
 			add(numberOfEnemiesKilled);
@@ -35,9 +36,15 @@ package
 			add(level);
 		}
 		
+		private var statTextY:int = FlxG.height/2 -50;
+		
 		private function setTextSize(text:FlxText):FlxText {
 			text.size = 8;
 			text.alignment = "left";
+			text.color = ApplicationSettings.endOfLevelTextColor;
+			text.x = FlxG.width/2-50;
+			text.y = statTextY;
+			statTextY -= 10;
 			return text;
 		}
 		
@@ -47,6 +54,9 @@ package
 			score.text = "Score " + FlxG.score;
 			level.text = "Level " + ApplicationSettings.currentLevelNumber;
 			
+			totalNumberofEnemies.exists = ApplicationSettings.finshedLevel();
+			killPercentage.exists = ApplicationSettings.finshedLevel();
+			numberOfEnemiesKilled.exists = ApplicationSettings.finshedLevel();
 			
 			totalNumberofEnemies.text = "Enemies encountered " + ApplicationSettings.totalNumberOfEnemiesReleased;
 			numberOfEnemiesKilled.text = "Killed " + ApplicationSettings.numberOfEnemiesKilled;

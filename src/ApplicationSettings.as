@@ -4,7 +4,7 @@ package
 	
 	public class ApplicationSettings
 	{
-		
+		public static var endOfLevelTextColor:int = 0xffA4A4B2;
 		private static var levels:Array;
 		public static var currentLevel:Level;
 		public static var currentLevelNumber:int = 0;
