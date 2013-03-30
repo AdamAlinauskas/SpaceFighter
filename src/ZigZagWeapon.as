@@ -37,6 +37,7 @@ package
 		}
 		
 		override public function addBulletsTo(weaponManager:WeaponManager):void {
+			Registry.SpaceShip.playAnimation(Player.ZigZagWeaponShip);
 			for (var i:int = 0; i < 60; i++) {
 				weaponManager.add(new ZigZagBullet);
 			}

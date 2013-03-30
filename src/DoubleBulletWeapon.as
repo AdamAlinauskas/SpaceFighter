@@ -40,6 +40,7 @@ package
 		
 		
 		override public function addBulletsTo(weaponManager:WeaponManager):void {
+			Registry.SpaceShip.playAnimation(Player.doubleWeaponShip);
 			for (var i:int = 0; i < 60; i++) {
 				var bullet:Bullet = new Bullet
 				bullet.makeGraphic(5, 5, 0xff5588dd);
