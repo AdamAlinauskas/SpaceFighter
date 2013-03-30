@@ -6,11 +6,13 @@ package
 	
 	public class Enemy extends FlxSprite
 	{
-		[Embed(source="../assets/Explosion7.mp3")] private var explosionMusic:Class;
+		[Embed(source = "../assets/Explosion7.mp3")] private var explosionMusic:Class;
+		[Embed(source = '../assets/enemy2.png')] public static var spriteSheet:Class;
 		private var shoot:Boolean;
 		public function Enemy() 
 		{
 			makeGraphic(15, 10, 0xff0000aa);
+			loadGraphic(spriteSheet);
 			exists = false;
 		}
 		

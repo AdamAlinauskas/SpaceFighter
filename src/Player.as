@@ -37,9 +37,12 @@ package
 		public static var hurtShip:String = "hurt";
 		
 		public function playAnimation(animation:String):void {
-			if (health == 1)
-				
-			play(animation);
+			if (health == 1) {
+				play(hurtShip);
+			}
+			else{	
+				play(animation);
+			}
 		}
 		       
 		override public function update():void 
