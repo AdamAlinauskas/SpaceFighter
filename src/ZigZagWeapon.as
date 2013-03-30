@@ -11,6 +11,8 @@ package
 		private var fireRate:Number = .05;
 		private var counter:Number = 0;
 		private var startDirectionLeft:int = 1;
+
+		[Embed(source="../assets/Laser_Shoot9.mp3")] private var shootMusic:Class;
 		
 		public function ZigZagWeapon(){
 			
@@ -30,6 +32,7 @@ package
 				if (bullet != null) {
       				bullet.setInitialBulletXaxisDirection(shootRight);
 					bullet.fire(bx, by);
+				 	GameSound.play(shootMusic,.03);
 				}
 		}
 		

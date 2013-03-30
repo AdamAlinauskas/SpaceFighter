@@ -56,6 +56,11 @@ package
         {
             bullet.kill();
             enemy.hurt(1);
+        }
+
+        public function removeAll():void{
+        	super.clear();
+        	enemies = [];
         }	
 	}
 

@@ -21,7 +21,7 @@ package
 		
 		public static function finshedLevel():Boolean 
 		{
-			return Registry.Enemies.countDead() == currentLevel.numberOfEnemies;
+			return Registry.Enemies.countDead() == currentLevel.numberOfEnemies || Registry.SpaceShip.health == 0;
 		};
 		
 		public static function LoadLevel(myLevels:Array):void {

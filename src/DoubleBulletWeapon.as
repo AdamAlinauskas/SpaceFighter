@@ -13,6 +13,8 @@ package
 			
 		}
 		private var canFire:Boolean = true;
+		[Embed(source="../assets/Laser_Shoot5.mp3")] private var shootMusic:Class;
+
 		
 		override public function fire(bx:int, by:int,weaponManager:WeaponManager):void {
 			if ( canFire ) {
@@ -29,8 +31,11 @@ package
 		
 		private function fireBullet(bx:int,by:int,weaponManager:WeaponManager):void {
 			var bullet:Bullet = Bullet(weaponManager.getFirstAvailable());
-			if(bullet)
+			if(bullet){
 				bullet.fire(bx + 7, by);
+			 	GameSound.play(shootMusic,.03);
+
+			}
 		}
 		
 		

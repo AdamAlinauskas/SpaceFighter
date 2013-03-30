@@ -21,6 +21,17 @@ package
 		override public function update():void 
 		{
 			super.update();
+			
+			message.color = 0xff009900;
+
+			if(Registry.SpaceShip.health == 0){
+				message.exists = true;
+				message.color = 0xffB20000;
+				message.text = "Game Over"
+				Registry.Enemies.removeAll();
+				return;
+			}
+
 			if (ApplicationSettings.finshedLevel()) {
 				message.exists = true;
 				if (ApplicationSettings.hasNextLevel()) {

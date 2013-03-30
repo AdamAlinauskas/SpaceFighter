@@ -20,8 +20,9 @@ package
 			powerUp = new PowerUpSprite;
 			powerUp.kill();
 			add(powerUp);
-			powerUps.push(new ZigZagWeapon());
 			powerUps.push(new DoubleBulletWeapon());
+			powerUps.push(new ZigZagWeapon());
+			
 		}
 		
 		override public function update():void {

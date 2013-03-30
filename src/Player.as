@@ -7,6 +7,9 @@ package
 	 */
 	public class Player extends FlxSprite
 	{
+
+		[Embed(source="../assets/hit.mp3")] private var hitMusic:Class;		
+
 		public function Player() 
 		{
 			super(FlxG.width / 2, FlxG.height - 50);
@@ -76,6 +79,11 @@ package
 				acceleration.y = 0;
 				velocity.y=0
 			}	
+		}
+
+		override public function hurt(Damage:Number):void{
+            super.hurt(Damage);
+            GameSound.play(hitMusic,.1);			
 		}
 		
 		public function bulletHit(bullet:FlxObject, player:FlxObject):void
