@@ -43,6 +43,10 @@ package
 			}
 		}
 		
+		override public function name():String{
+				return "zigzag";
+		}
+		
 	}
 
 }

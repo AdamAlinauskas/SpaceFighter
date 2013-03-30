@@ -19,6 +19,10 @@ package
 		public function addBulletsTo(weaponManager:WeaponManager):void {
 			
 		}
+		
+		public function name():String{
+			return "";
+		}
 	}
 
 }

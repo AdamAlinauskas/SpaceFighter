@@ -32,6 +32,7 @@ package
 			if (HasPowerUp == false &&  FlxG.score != 0 && FlxG.score %displayPowerUpAfterKilling == 0)
             {
 				powerUp.revive();
+				powerUp.play(Weapon(powerUps[selectedPowerUp]).name());
                 powerUp.x = 150;
 				powerUp.y = -25;
             }

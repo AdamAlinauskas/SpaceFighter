@@ -47,6 +47,10 @@ package
 				weaponManager.add(bullet);
 			}
 		}
+		
+		override public function name():String{
+			return "double";
+		}
 	}
 
 }
