@@ -12,8 +12,10 @@ package
 		public function Enemy() 
 		{
 			makeGraphic(15, 10, 0xff0000aa);
-			loadGraphic(spriteSheet);
+			loadGraphic(spriteSheet,true,false,16,10);
 			exists = false;
+			addAnimation("move", [0, 1], 2, true);
+			play("move");
 		}
 		
 		public function launch():void {
